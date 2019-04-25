@@ -1,0 +1,130 @@
+# ************************************************************
+# Sequel Pro SQL dump
+# Version 4541
+#
+# http://www.sequelpro.com/
+# https://github.com/sequelpro/sequelpro
+#
+# Host: 127.0.0.1 (MySQL 5.7.18)
+# Database: shoppingMall
+# Generation Time: 2019-04-25 14:40:23 +0000
+# ************************************************************
+
+
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+/*!40101 SET NAMES utf8 */;
+/*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;
+/*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
+/*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
+
+
+# Dump of table SH_MALL_MEMBER_TB
+# ------------------------------------------------------------
+
+DROP TABLE IF EXISTS `SH_MALL_MEMBER_TB`;
+
+CREATE TABLE `SH_MALL_MEMBER_TB` (
+  `MEMBER_IDX` int(11) unsigned NOT NULL AUTO_INCREMENT,
+  `MEMBER_ID` varchar(255) NOT NULL,
+  `PASSWORD` varchar(45) NOT NULL,
+  `ADDR` varchar(255) NOT NULL,
+  `NAME` varchar(15) NOT NULL,
+  `PHONE_NUMBER1` varchar(10) NOT NULL,
+  `PHONE_NUMBER2` varchar(10) NOT NULL,
+  `PHONE_NUMBER3` varchar(10) NOT NULL,
+  `EMAIL1` varchar(20) NOT NULL,
+  `EMAIL2` varchar(20) NOT NULL,
+  `REG_DATE` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `UPDATE_DATE` timestamp NULL DEFAULT NULL,
+  PRIMARY KEY (`MEMBER_IDX`),
+  UNIQUE KEY `MEMBER_ID_UNIQUE` (`MEMBER_ID`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+
+
+# Dump of table SH_MALL_MILEAGE_TB
+# ------------------------------------------------------------
+
+DROP TABLE IF EXISTS `SH_MALL_MILEAGE_TB`;
+
+CREATE TABLE `SH_MALL_MILEAGE_TB` (
+  `MILEAGE_IDX` int(10) unsigned NOT NULL,
+  `MEMBER_IDX` varchar(45) NOT NULL,
+  `INDECREASE_VAL` int(11) DEFAULT NULL,
+  `REG_DATE` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
+  PRIMARY KEY (`MILEAGE_IDX`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+
+
+# Dump of table SH_MALL_ORDER_TB
+# ------------------------------------------------------------
+
+DROP TABLE IF EXISTS `SH_MALL_ORDER_TB`;
+
+CREATE TABLE `SH_MALL_ORDER_TB` (
+  `ORDER_ID` varchar(50) NOT NULL,
+  `MEMBER_IDX` varchar(45) DEFAULT NULL,
+  `NON_MEMBER_IDX` varchar(45) DEFAULT NULL,
+  PRIMARY KEY (`ORDER_ID`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+
+
+# Dump of table SH_MALL_PRODUCT_OPTION_TB
+# ------------------------------------------------------------
+
+DROP TABLE IF EXISTS `SH_MALL_PRODUCT_OPTION_TB`;
+
+CREATE TABLE `SH_MALL_PRODUCT_OPTION_TB` (
+  `PRDT_OPTION_IDX` int(11) NOT NULL,
+  `PRODUCT_ID` varchar(45) DEFAULT NULL,
+  `NAME` varchar(45) NOT NULL,
+  `ADDED_PRICE` int(11) NOT NULL,
+  `HIDDEN` enum('Y','N') NOT NULL,
+  `REG_DATE` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
+  PRIMARY KEY (`PRDT_OPTION_IDX`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+
+
+# Dump of table SH_MALL_PRODUCT_TB
+# ------------------------------------------------------------
+
+DROP TABLE IF EXISTS `SH_MALL_PRODUCT_TB`;
+
+CREATE TABLE `SH_MALL_PRODUCT_TB` (
+  `PRODUCT_ID` varchar(50) NOT NULL,
+  `PRICE` int(11) NOT NULL,
+  `STATUS` enum('NOMAL','SOLDOUT','HIDDEN') NOT NULL DEFAULT 'HIDDEN',
+  `NAME` varchar(255) NOT NULL,
+  `EXPLANATION` text,
+  `MILEAGE` int(11) unsigned DEFAULT '0',
+  PRIMARY KEY (`PRODUCT_ID`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+
+
+# Dump of table SH_MALL_RELATION_PRODUCT_TB
+# ------------------------------------------------------------
+
+DROP TABLE IF EXISTS `SH_MALL_RELATION_PRODUCT_TB`;
+
+CREATE TABLE `SH_MALL_RELATION_PRODUCT_TB` (
+  `RELATION_PRDT_IDX` int(11) NOT NULL,
+  `PRODUCT_ID` varchar(50) DEFAULT NULL,
+  `REG_DATE` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
+  PRIMARY KEY (`RELATION_PRDT_IDX`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+
+
+
+/*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
+/*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
+/*!40014 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS */;
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
+/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
