@@ -3,7 +3,12 @@
         PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-config.dtd">
 <configuration>
+    <!--<settings>-->
+        <!---->
+    <!--</settings>-->
+
     <typeAliases>
-        <package name="com.okstudy.shop.domain.vo"></package>
+        <package name="com.okstudy.shop.domain"></package>
     </typeAliases>
+
 </configuration>

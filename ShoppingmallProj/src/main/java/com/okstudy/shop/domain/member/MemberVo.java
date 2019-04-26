@@ -1,4 +1,4 @@
-package com.okstudy.shop.domain.vo;
+package com.okstudy.shop.domain.member;
 
 import lombok.Getter;
 import lombok.Setter;
