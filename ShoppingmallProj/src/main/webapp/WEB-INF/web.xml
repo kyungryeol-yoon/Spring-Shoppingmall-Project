@@ -30,6 +30,16 @@
 		<url-pattern>/</url-pattern>
 	</servlet-mapping>
 
+	<servlet-mapping>
+		<servlet-name>default</servlet-name>
+		<url-pattern>*.js</url-pattern>
+		<url-pattern>*.css</url-pattern>
+		<url-pattern>*.less</url-pattern>
+		<url-pattern>*.png</url-pattern>
+		<url-pattern>*.jpg</url-pattern>
+		<url-pattern>*.gif</url-pattern>
+	</servlet-mapping>
+
 	<!-- add UTF-8 Filter -->
 	<filter>
 		<filter-name>encodingFilter</filter-name>
@@ -46,6 +56,6 @@
 	<filter-mapping>
 		<filter-name>encodingFilter</filter-name>
 		<url-pattern>/*</url-pattern>
-	</filter-mapping>‰
+	</filter-mapping>
 
 </web-app>
