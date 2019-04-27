@@ -7,7 +7,7 @@
 #
 # Host: 127.0.0.1 (MySQL 5.7.18)
 # Database: shoppingMall
-# Generation Time: 2019-04-25 14:40:23 +0000
+# Generation Time: 2019-04-26 23:59:57 +0000
 # ************************************************************
 
 
@@ -20,12 +20,40 @@
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
 
-# Dump of table SH_MALL_MEMBER_TB
+# Dump of table SH_CATEGORY_PRDT_TB
 # ------------------------------------------------------------
 
-DROP TABLE IF EXISTS `SH_MALL_MEMBER_TB`;
+DROP TABLE IF EXISTS `SH_CATEGORY_PRDT_TB`;
 
-CREATE TABLE `SH_MALL_MEMBER_TB` (
+CREATE TABLE `SH_CATEGORY_PRDT_TB` (
+  `CATEGORY_IDX` int(11) NOT NULL,
+  `PRODUCT_ID` varchar(50) NOT NULL,
+  `REG_DATE` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
+  PRIMARY KEY (`CATEGORY_IDX`,`PRODUCT_ID`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+
+
+# Dump of table SH_CATEGORY_TB
+# ------------------------------------------------------------
+
+DROP TABLE IF EXISTS `SH_CATEGORY_TB`;
+
+CREATE TABLE `SH_CATEGORY_TB` (
+  `CATEGORY_IDX` int(11) NOT NULL,
+  `NAME` varchar(45) NOT NULL,
+  `REG_DATE` timestamp NULL DEFAULT NULL,
+  PRIMARY KEY (`CATEGORY_IDX`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+
+
+# Dump of table SH_MEMBER_TB
+# ------------------------------------------------------------
+
+DROP TABLE IF EXISTS `SH_MEMBER_TB`;
+
+CREATE TABLE `SH_MEMBER_TB` (
   `MEMBER_IDX` int(11) unsigned NOT NULL AUTO_INCREMENT,
   `MEMBER_ID` varchar(255) NOT NULL,
   `PASSWORD` varchar(45) NOT NULL,
@@ -44,12 +72,12 @@ CREATE TABLE `SH_MALL_MEMBER_TB` (
 
 
 
-# Dump of table SH_MALL_MILEAGE_TB
+# Dump of table SH_MILEAGE_TB
 # ------------------------------------------------------------
 
-DROP TABLE IF EXISTS `SH_MALL_MILEAGE_TB`;
+DROP TABLE IF EXISTS `SH_MILEAGE_TB`;
 
-CREATE TABLE `SH_MALL_MILEAGE_TB` (
+CREATE TABLE `SH_MILEAGE_TB` (
   `MILEAGE_IDX` int(10) unsigned NOT NULL,
   `MEMBER_IDX` varchar(45) NOT NULL,
   `INDECREASE_VAL` int(11) DEFAULT NULL,
@@ -59,12 +87,12 @@ CREATE TABLE `SH_MALL_MILEAGE_TB` (
 
 
 
-# Dump of table SH_MALL_ORDER_TB
+# Dump of table SH_ORDER_TB
 # ------------------------------------------------------------
 
-DROP TABLE IF EXISTS `SH_MALL_ORDER_TB`;
+DROP TABLE IF EXISTS `SH_ORDER_TB`;
 
-CREATE TABLE `SH_MALL_ORDER_TB` (
+CREATE TABLE `SH_ORDER_TB` (
   `ORDER_ID` varchar(50) NOT NULL,
   `MEMBER_IDX` varchar(45) DEFAULT NULL,
   `NON_MEMBER_IDX` varchar(45) DEFAULT NULL,
@@ -73,12 +101,12 @@ CREATE TABLE `SH_MALL_ORDER_TB` (
 
 
 
-# Dump of table SH_MALL_PRODUCT_OPTION_TB
+# Dump of table SH_PRODUCT_OPTION_TB
 # ------------------------------------------------------------
 
-DROP TABLE IF EXISTS `SH_MALL_PRODUCT_OPTION_TB`;
+DROP TABLE IF EXISTS `SH_PRODUCT_OPTION_TB`;
 
-CREATE TABLE `SH_MALL_PRODUCT_OPTION_TB` (
+CREATE TABLE `SH_PRODUCT_OPTION_TB` (
   `PRDT_OPTION_IDX` int(11) NOT NULL,
   `PRODUCT_ID` varchar(45) DEFAULT NULL,
   `NAME` varchar(45) NOT NULL,
@@ -90,29 +118,29 @@ CREATE TABLE `SH_MALL_PRODUCT_OPTION_TB` (
 
 
 
-# Dump of table SH_MALL_PRODUCT_TB
+# Dump of table SH_PRODUCT_TB
 # ------------------------------------------------------------
 
-DROP TABLE IF EXISTS `SH_MALL_PRODUCT_TB`;
+DROP TABLE IF EXISTS `SH_PRODUCT_TB`;
 
-CREATE TABLE `SH_MALL_PRODUCT_TB` (
+CREATE TABLE `SH_PRODUCT_TB` (
   `PRODUCT_ID` varchar(50) NOT NULL,
   `PRICE` int(11) NOT NULL,
   `STATUS` enum('NOMAL','SOLDOUT','HIDDEN') NOT NULL DEFAULT 'HIDDEN',
   `NAME` varchar(255) NOT NULL,
-  `EXPLANATION` text,
+  `DESCRIPTION` text,
   `MILEAGE` int(11) unsigned DEFAULT '0',
   PRIMARY KEY (`PRODUCT_ID`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 
 
-# Dump of table SH_MALL_RELATION_PRODUCT_TB
+# Dump of table SH_RELATION_PRODUCT_TB
 # ------------------------------------------------------------
 
-DROP TABLE IF EXISTS `SH_MALL_RELATION_PRODUCT_TB`;
+DROP TABLE IF EXISTS `SH_RELATION_PRODUCT_TB`;
 
-CREATE TABLE `SH_MALL_RELATION_PRODUCT_TB` (
+CREATE TABLE `SH_RELATION_PRODUCT_TB` (
   `RELATION_PRDT_IDX` int(11) NOT NULL,
   `PRODUCT_ID` varchar(50) DEFAULT NULL,
   `REG_DATE` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
