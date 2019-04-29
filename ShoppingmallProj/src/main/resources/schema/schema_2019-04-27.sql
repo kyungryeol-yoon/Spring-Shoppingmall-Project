@@ -149,6 +149,67 @@ CREATE TABLE `SH_RELATION_PRODUCT_TB` (
 
 
 
+# Dump of table SH_BOARD_TB
+# ------------------------------------------------------------
+
+DROP TABLE IF EXISTS 'SH_BOARD_TB';
+
+create table `SH_BOARD_TB`(
+	`bno` int not null auto_increment,          
+	`title` varchar(200) not null,
+	`content` varchar(4000),        
+	`writer` varchar(50) not null,   
+	`regdate` timestamp NULL DEFAULT CURRENT_TIMESTAMP, 
+	`viewcnt` int default 0,
+	`show` char(1),
+	primary key(bno)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+
+
+# Dump of table SH_BOARD_REPLY_TB
+# ------------------------------------------------------------
+
+DROP TABLE IF EXISTS 'SH_BOARD_REPLY_TB';
+
+create table SH_BOARD_REPLY_TB(
+	rno int not null auto_increment, 
+	bno int not null,
+	replytext varchar(1000) not null,
+	replyer varchar(50),           
+	regdate timestamp NULL DEFAULT CURRENT_TIMESTAMP, 
+	updatedate timestamp NULL DEFAULT NULL,
+	secret_reply char(1),
+	primary key(rno)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+
+
+# 댓글 테이블 제약조건(외래키) 생성
+# ------------------------------------------------------------
+
+alter table SH_BOARD_REPLY_TB add foreign key(bno) references SH_BOARD_TB(bno);
+
+
+
+# 게시판 첨부파일 테이블 생성
+# ------------------------------------------------------------
+
+DROP TABLE IF EXISTS 'SH_BOARD_ATTACH_TB';
+
+CREATE TABLE SH_BOARD_ATTACH_TB (
+  fullname VARCHAR(150) NOT NULL,
+  bno int NOT NULL,
+  regdate timestamp NULL DEFAULT CURRENT_TIMESTAMP,
+  PRIMARY KEY(fullname)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+
+
+# 게시판 첨부파일 테이블 제약조건(외래키) 생성
+# ------------------------------------------------------------
+
+ALTER TABLE SH_BOARD_ATTACH_TB add FOREIGN KEY(bno) REFERENCES SH_BOARD_TB(bno);
 
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 /*!40101 SET SQL_MODE=@OLD_SQL_MODE */;

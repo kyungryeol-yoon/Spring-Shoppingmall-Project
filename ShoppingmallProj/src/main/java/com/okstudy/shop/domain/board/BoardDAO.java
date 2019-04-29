@@ -1,6 +1,8 @@
 package com.okstudy.shop.domain.board;
 
-public class BoardDAO {
+import java.util.List;
+
+public interface BoardDAO {
 	// 01. 게시글 작성
 	public void create(BoardVO vo) throws Exception;
 	// 02. 게시글 상세보기
