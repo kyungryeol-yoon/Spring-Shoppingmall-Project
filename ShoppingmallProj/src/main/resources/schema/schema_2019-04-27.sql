@@ -155,14 +155,14 @@ CREATE TABLE `SH_RELATION_PRODUCT_TB` (
 DROP TABLE IF EXISTS 'SH_BOARD_TB';
 
 create table `SH_BOARD_TB`(
-	`bno` int not null auto_increment,          
-	`title` varchar(200) not null,
-	`content` varchar(4000),        
-	`writer` varchar(50) not null,   
-	`regdate` timestamp NULL DEFAULT CURRENT_TIMESTAMP, 
-	`viewcnt` int default 0,
-	`show` char(1),
-	primary key(bno)
+	`BOARD_IDX` int not null auto_increment,          
+	`BOARD_TITLE` varchar(200) not null,
+	`BOARD_CONTENT` varchar(4000),        
+	`BOARD_WRITER` varchar(50) not null,   
+	`REG_DATE` timestamp NULL DEFAULT CURRENT_TIMESTAMP, 
+	`VIEW_COUNT` int default 0,
+	`BOARD_SHOW` char(1),
+	primary key(BOARD_IDX)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 
@@ -173,14 +173,14 @@ create table `SH_BOARD_TB`(
 DROP TABLE IF EXISTS 'SH_BOARD_REPLY_TB';
 
 create table SH_BOARD_REPLY_TB(
-	rno int not null auto_increment, 
-	bno int not null,
-	replytext varchar(1000) not null,
-	replyer varchar(50),           
-	regdate timestamp NULL DEFAULT CURRENT_TIMESTAMP, 
-	updatedate timestamp NULL DEFAULT NULL,
-	secret_reply char(1),
-	primary key(rno)
+	`REPLY_IDX` int not null auto_increment, 
+	`REPLY_BOARD_IDX` int not null,
+	`REPLY_TEXT` varchar(1000) not null,
+	`REPLYER` varchar(50),           
+	`REG_DATE` timestamp NULL DEFAULT CURRENT_TIMESTAMP, 
+	`UPDATE_DATE` timestamp NULL DEFAULT NULL,
+	`SECRET_REPLY` char(1),
+	primary key(REPLY_IDX)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 
@@ -188,7 +188,7 @@ create table SH_BOARD_REPLY_TB(
 # 댓글 테이블 제약조건(외래키) 생성
 # ------------------------------------------------------------
 
-alter table SH_BOARD_REPLY_TB add foreign key(bno) references SH_BOARD_TB(bno);
+alter table SH_BOARD_REPLY_TB add foreign key(REPLY_BOARD_IDX) references SH_BOARD_TB(BOARD_IDX);
 
 
 
@@ -198,10 +198,10 @@ alter table SH_BOARD_REPLY_TB add foreign key(bno) references SH_BOARD_TB(bno);
 DROP TABLE IF EXISTS 'SH_BOARD_ATTACH_TB';
 
 CREATE TABLE SH_BOARD_ATTACH_TB (
-  fullname VARCHAR(150) NOT NULL,
-  bno int NOT NULL,
-  regdate timestamp NULL DEFAULT CURRENT_TIMESTAMP,
-  PRIMARY KEY(fullname)
+  `BOARD_ATTACH_FULLNAME` VARCHAR(150) NOT NULL,
+  `ATTACH_BOARD_IDX` int NOT NULL,
+  `REG_DATE` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
+  PRIMARY KEY(BOARD_ATTACH_FULLNAME)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 
@@ -209,7 +209,7 @@ CREATE TABLE SH_BOARD_ATTACH_TB (
 # 게시판 첨부파일 테이블 제약조건(외래키) 생성
 # ------------------------------------------------------------
 
-ALTER TABLE SH_BOARD_ATTACH_TB add FOREIGN KEY(bno) REFERENCES SH_BOARD_TB(bno);
+ALTER TABLE SH_BOARD_ATTACH_TB add FOREIGN KEY(ATTACH_BOARD_IDX) REFERENCES SH_BOARD_TB(BOARD_IDX);
 
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 /*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
