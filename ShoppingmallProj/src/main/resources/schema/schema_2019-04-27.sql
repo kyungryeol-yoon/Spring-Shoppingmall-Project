@@ -152,7 +152,7 @@ CREATE TABLE `SH_RELATION_PRODUCT_TB` (
 # Dump of table SH_BOARD_TB
 # ------------------------------------------------------------
 
-DROP TABLE IF EXISTS 'SH_BOARD_TB';
+DROP TABLE IF EXISTS `SH_BOARD_TB`;
 
 create table `SH_BOARD_TB`(
 	`BOARD_IDX` int not null auto_increment,          
@@ -170,7 +170,7 @@ create table `SH_BOARD_TB`(
 # Dump of table SH_BOARD_REPLY_TB
 # ------------------------------------------------------------
 
-DROP TABLE IF EXISTS 'SH_BOARD_REPLY_TB';
+DROP TABLE IF EXISTS `SH_BOARD_REPLY_TB`;
 
 create table SH_BOARD_REPLY_TB(
 	`REPLY_IDX` int not null auto_increment, 
@@ -188,14 +188,14 @@ create table SH_BOARD_REPLY_TB(
 # 댓글 테이블 제약조건(외래키) 생성
 # ------------------------------------------------------------
 
-alter table SH_BOARD_REPLY_TB add foreign key(REPLY_BOARD_IDX) references SH_BOARD_TB(BOARD_IDX);
+ALTER TABLE SH_BOARD_REPLY_TB ADD FOREIGN KEY(REPLY_BOARD_IDX) REFERENCES SH_BOARD_TB(BOARD_IDX);
 
 
 
 # 게시판 첨부파일 테이블 생성
 # ------------------------------------------------------------
 
-DROP TABLE IF EXISTS 'SH_BOARD_ATTACH_TB';
+DROP TABLE IF EXISTS `SH_BOARD_ATTACH_TB`;
 
 CREATE TABLE SH_BOARD_ATTACH_TB (
   `BOARD_ATTACH_FULLNAME` VARCHAR(150) NOT NULL,
@@ -209,7 +209,7 @@ CREATE TABLE SH_BOARD_ATTACH_TB (
 # 게시판 첨부파일 테이블 제약조건(외래키) 생성
 # ------------------------------------------------------------
 
-ALTER TABLE SH_BOARD_ATTACH_TB add FOREIGN KEY(ATTACH_BOARD_IDX) REFERENCES SH_BOARD_TB(BOARD_IDX);
+ALTER TABLE SH_BOARD_ATTACH_TB ADD FOREIGN KEY(ATTACH_BOARD_IDX) REFERENCES SH_BOARD_TB(BOARD_IDX);
 
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 /*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
