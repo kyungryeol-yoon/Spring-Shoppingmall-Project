@@ -1,8 +1,10 @@
-package com.okstudy.shop.domain.board;
+package com.okstudy.shop.service.board;
 
 import java.util.List;
 
 import javax.servlet.http.HttpSession;
+
+import com.okstudy.shop.domain.board.ReplyVO;
 
 public interface ReplyService {
 	// 1. 댓글 입력

@@ -1,8 +1,12 @@
-package com.okstudy.shop.domain.board;
+package com.okstudy.shop.service.board;
 
 import java.util.List;
 
-public interface BoardDAO {
+import javax.servlet.http.HttpSession;
+
+import com.okstudy.shop.domain.board.BoardVO;
+
+public interface BoardService {
 	// 01. 게시글 작성
 	public void create(BoardVO vo) throws Exception;
 	// 02. 게시글 상세보기

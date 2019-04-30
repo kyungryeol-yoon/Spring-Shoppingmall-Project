@@ -2,10 +2,75 @@
 <!DOCTYPE mapper
         PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.okstudy.shop.domain.board.BoardVO">
+<mapper namespace="com.okstudy.shop.mapper.board.boardMapper">
 
-    <select id="listAll" resultType="Board">
-      SELECT * FROM SH_BOARD_TB
+    <insert id="create">
+        INSERT INTO SH_BOARD_TB (
+            BOARD_IDX
+            , BOARD_TITLE
+            , BOARD_CONTENT
+            , BOARD_WRITER
+            , REG_DATE
+            , VIEW_COUNT
+        ) VALUES (
+            #{boardIdx}
+            , #{title}
+            , #{content}
+            , #{writer}
+            , #{regDate}
+            , #{viewCnt}
+        )
+    </insert>
+
+    <select id="read" resultMap="BoardResultMap">
+        SELECT
+            BOARD_IDX
+            , BOARD_TITLE
+            , BOARD_CONTENT
+            , BOARD_WRITER
+            , REG_DATE
+            , VIEW_COUNT
+        FROM
+            SH_BOARD_TB
+        WHERE BOARD_IDX = #{boardIdx}
     </select>
+
+    <update id="update">
+        UPDATE SH_BOARD_TB
+        SET
+            BOARD_TITLE = #{title}
+            , BOARD_CONTENT = #{content}
+        WHERE
+            BOARD_IDX = #{boardIdx}
+    </update>
+
+    <delete id="delete">
+        DELETE FROM SH_BOARD_TB
+        WHERE BOARD_IDX = #{boardIdx}
+    </delete>
+
+    <select id="listAll" resultMap="BoardResultMap">
+        <![CDATA[
+        SELECT
+            BOARD_IDX,
+            BOARD_TITLE,
+            BOARD_CONTENT,
+            BOARD_WRITER,
+            REG_DATE,
+            VIEW_COUNT
+        FROM SH_BOARD_TB
+        WHERE BOARD_IDX > 0
+        ORDER BY BOARD_IDX DESC, REG_DATE DESC
+        ]]>
+    </select>
+
+    <resultMap id="BoardResultMap" type="BoardVO">
+        <id property="boardIdx" column="BOARD_IDX"/>
+        <result property="title" column="BOARD_TITLE" />
+        <result property="content" column="BOARD_CONTENT" />
+        <result property="writer" column="BOARD_WRITER" />
+        <result property="regDate" column="REG_DATE" />
+        <result property="viewCnt" column="VIEW_COUNT" />
+    </resultMap>
 
 </mapper>
