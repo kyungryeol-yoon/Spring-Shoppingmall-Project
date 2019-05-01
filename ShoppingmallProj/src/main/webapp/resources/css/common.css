@@ -1,0 +1,22 @@
+
+body{
+    font-family:Verdana,Dotum,sans-serif;
+}
+/* 반응형 죽이기 */
+.container {
+    width: 1280px;
+    max-width: none !important;
+    position: relative;
+    padding: 15px 15px;
+    font-size: 11px;
+}
+
+
+#header{height:150px;}
+#content{margin-left: 250px;}
+#nav{position: absolute; left:0; font-size: 20px;}
+#nav > li:first-child{margin-bottom: 80px;}
+
+#header .gnb ul{float:right;}
+#header .gnb ul > li{float:left; list-style: none; padding-right: 30px;}
+

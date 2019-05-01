@@ -1,5 +1,6 @@
 package com.okstudy.shop.controller;
 
+import com.okstudy.shop.domain.category.CategoryService;
 import com.okstudy.shop.domain.member.MemberService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -15,12 +16,14 @@ public class MainController {
 
 	@Autowired
 	private MemberService memberService;
+	@Autowired
+	private CategoryService categoryService;
 
 	@GetMapping("")
 	public String home(Model model) {
 //		model.addAttribute("member", memberService.findOne() );
-		System.out.println(memberService.findOne());
-
+		System.out.println(categoryService.list());
+		model.addAttribute("category", categoryService.list());
 		return "/main/main";
 	}
 	
