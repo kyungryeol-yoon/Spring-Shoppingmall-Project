@@ -1,25 +1,23 @@
 package com.okstudy.shop.domain.board;
 
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
 import javax.inject.Inject;
- 
+
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.stereotype.Repository;
 
 @Repository    // 현재 클래스를 dao bean으로 등록
 public class BoardDAOImpl implements BoardDAO {
 	
-	private static final String NAMESPACE = "com.okstudy.shop.mapper.board.boardMapper";
+	private static final String NAMESPACE = "com.okstudy.shop.domain.board.BoardDAO";
 	
 	private final SqlSession sqlSession;
-	
-	@Inject
-	public BoardDAOImpl(SqlSession sqlSession) {
-		this.sqlSession = sqlSession;
-	}
+
+    @Inject
+    public BoardDAOImpl(SqlSession sqlSession) {
+        this.sqlSession = sqlSession;
+    }
 	
 	// 01_01. 게시글 작성
 	@Override

@@ -2,7 +2,7 @@
 <!DOCTYPE mapper
         PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.okstudy.shop.mapper.board.boardMapper">
+<mapper namespace="com.okstudy.shop.domain.board.BoardDAO">
 
     <insert id="create">
         INSERT INTO SH_BOARD_TB (
@@ -50,7 +50,6 @@
     </delete>
 
     <select id="listAll" resultType="Board">
-        <![CDATA[
         SELECT
             BOARD_IDX,
             BOARD_TITLE,
@@ -61,7 +60,5 @@
         FROM SH_BOARD_TB
         WHERE BOARD_IDX > 0
         ORDER BY BOARD_IDX DESC, REG_DATE DESC
-        ]]>
     </select>
-
 </mapper>

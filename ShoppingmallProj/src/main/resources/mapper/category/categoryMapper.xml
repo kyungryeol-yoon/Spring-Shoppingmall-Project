@@ -6,7 +6,6 @@
 
     <select id="list" resultType="Category">
       SELECT * FROM SH_CATEGORY_TB
-      WHERE STATUS = "NORMAL"
     </select>
 
 </mapper>

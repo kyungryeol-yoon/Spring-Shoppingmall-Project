@@ -21,7 +21,7 @@
                     <th style="width: 150px">작성시간</th>
                     <th style="width: 60px">조회</th>
                 </tr>
-                <c:forEach items="${board}" var="board">
+                <c:forEach items="${articles}" var="board">
                 <tr>
                     <td>${board.boardIdx}</td>
                     <td><a href="${path}/board/read?boardIdx=${board.boardIdx}">${board.title}</a></td>

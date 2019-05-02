@@ -2,8 +2,6 @@ package com.okstudy.shop.domain.board;
 
 import java.util.List;
 
-import javax.servlet.http.HttpSession;
-
 public interface BoardService {
 	// 01. 게시글 작성
 	public void create(BoardVO vo) throws Exception;

@@ -1,6 +1,7 @@
 package com.okstudy.shop.controller;
 
 import com.okstudy.shop.domain.board.BoardService;
+import com.okstudy.shop.domain.board.BoardServiceImpl;
 import com.okstudy.shop.domain.board.BoardVO;
 
 import javax.inject.Inject;
@@ -8,6 +9,7 @@ import javax.inject.Inject;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -20,11 +22,11 @@ public class BoardController {
 	private static final Logger logger = LoggerFactory.getLogger(BoardController.class);
 
 	private final BoardService boardService;
-	
-	@Inject
-	public BoardController(BoardService boardService) {
-		this.boardService = boardService;
-	}
+
+    @Inject
+    public BoardController(BoardService boardService) {
+        this.boardService = boardService;
+    }
 	
 	//등록 페이지 이동
 	@RequestMapping(value = "/write", method = RequestMethod.GET)
@@ -52,7 +54,7 @@ public class BoardController {
 	public String list(Model model) throws Exception {
 
 	    logger.info("list ...");
-	    model.addAttribute("board", boardService.listAll());
+	    model.addAttribute("articles", boardService.listAll());
 
 	    return "/board/list";
 	}
