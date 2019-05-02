@@ -23,7 +23,7 @@ public class MainController {
 	public String home(Model model) {
 //		model.addAttribute("member", memberService.findOne() );
 		System.out.println(categoryService.list());
-		model.addAttribute("category", categoryService.list());
+		model.addAttribute("categorys", categoryService.list());
 		return "/main/main";
 	}
 	

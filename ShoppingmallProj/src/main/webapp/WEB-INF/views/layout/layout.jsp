@@ -28,20 +28,13 @@
     </div>
     <ul id="nav" class="nav flex-column">
         <li class="nav-item logo">
-            <a class="nav-link active" href="/">로고</a>
+            <a class="nav-link active" href="<c:url value='/'/>">로고</a>
         </li>
-        <li class="nav-item">
-            <a class="nav-link active" href="#">Active79879</a>
-        </li>
-        <li class="nav-item">
-            <a class="nav-link" href="#">Link</a>
-        </li>
-        <li class="nav-item">
-            <a class="nav-link" href="#">Link</a>
-        </li>
-        <li class="nav-item">
-            <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
-        </li>
+        <c:forEach var="categoryVo" items="${categorys}">
+            <li class="nav-item" >
+                <a class="nav-link active" href="<c:url value='/product/list/${categoryVo.category_idx}'/>">${categoryVo.name}</a>
+            </li>
+        </c:forEach>
     </ul>
 
     <div id="content">

@@ -7,6 +7,7 @@
     <select id="list" resultType="Category">
       SELECT * FROM SH_CATEGORY_TB
       WHERE STATUS = "NORMAL"
+      ORDER BY ORDER_NO
     </select>
 
 </mapper>

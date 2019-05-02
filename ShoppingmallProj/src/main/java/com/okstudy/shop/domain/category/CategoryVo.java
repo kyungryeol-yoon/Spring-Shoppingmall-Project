@@ -12,9 +12,9 @@ import java.sql.Timestamp;
 @Getter @Setter
 public class CategoryVo {
 
-    private Long categoryIdx;
-    private Long orderNo;
+    private Long category_idx;
+    private Long order_no;
     private String name;
     private String status;
-    private Timestamp regDate;
+    private Timestamp reg_date;
 }

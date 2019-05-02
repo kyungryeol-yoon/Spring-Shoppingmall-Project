@@ -12,16 +12,16 @@ import java.sql.Timestamp;
 @Getter @Setter
 public class MemberVo {
 
-    private Long memberIdx;
-    private String memberId;
+    private Long member_idx;
+    private String member_id;
     private String password;
     private String addr;
     private String name;
-    private String phoneNumber1;
-    private String phoneNumber2;
-    private String phoneNumber3;
+    private String phone_number1;
+    private String phone_number2;
+    private String phone_number3;
     private String email1;
     private String email2;
-    private Timestamp regDate;
-    private Timestamp updateDate;
+    private Timestamp reg_date;
+    private Timestamp update_date;
 }
