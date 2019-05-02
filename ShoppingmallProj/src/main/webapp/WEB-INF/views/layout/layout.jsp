@@ -8,18 +8,48 @@
     <script type="text/javascript" src="<c:url value="/resources/libs/jquery-1.12.4.min.js"/>"></script>
     <script type="text/javascript" src="<c:url value="/resources/libs/bootstrap.min.js"/>"></script>
     <link rel="stylesheet" type="text/css" href="<c:url value="/resources/libs/bootstrap.min.css"/>">
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/xeicon@2.3.3/xeicon.min.css">
+    <link rel="stylesheet" type="text/css" href="<c:url value="/resources/css/common.css"/>">
+
     <title>Home</title>
 </head>
 <body>
 <div class="container">
-    <div class="header">
+    <div id="header" class="header">
+        <div class="gnb">
+            <ul>
+                <li><a href="" target="_blank">+ BOOKMARK</a></li>
+                <li><a href="">LOGIN</a></li>
+                <li><a href="">ORDER</a></li>
+                <li><a href="">MY-PAGE</a></li>
+                <li><a href=""><i class="xi-market"></i></a></li>
+            </ul>
+        </div>
+    </div>
+    <ul id="nav" class="nav flex-column">
+        <li class="nav-item logo">
+            <a class="nav-link active" href="/">로고</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link active" href="#">Active79879</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="#">Link</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="#">Link</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
+        </li>
+    </ul>
 
-        <h3 class="text-muted">Project name</h3>
+    <div id="content">
+        <tiles:insertAttribute name="content" />
     </div>
 
-   <tiles:insertAttribute name="content" />
 
-    <footer class="footer">
+    <footer id="footer" class="footer">
         <p>© 2016 Company, Inc.</p>
     </footer>
 </div>
