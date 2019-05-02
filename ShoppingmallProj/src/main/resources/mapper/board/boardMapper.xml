@@ -22,7 +22,7 @@
         )
     </insert>
 
-    <select id="read" resultMap="BoardResultMap">
+    <select id="read">
         SELECT
             BOARD_IDX
             , BOARD_TITLE
@@ -49,7 +49,7 @@
         WHERE BOARD_IDX = #{boardIdx}
     </delete>
 
-    <select id="listAll" resultMap="BoardResultMap">
+    <select id="listAll" resultType="Board">
         <![CDATA[
         SELECT
             BOARD_IDX,
@@ -63,14 +63,5 @@
         ORDER BY BOARD_IDX DESC, REG_DATE DESC
         ]]>
     </select>
-
-    <resultMap id="BoardResultMap" type="BoardVO">
-        <id property="boardIdx" column="BOARD_IDX"/>
-        <result property="title" column="BOARD_TITLE" />
-        <result property="content" column="BOARD_CONTENT" />
-        <result property="writer" column="BOARD_WRITER" />
-        <result property="regDate" column="REG_DATE" />
-        <result property="viewCnt" column="VIEW_COUNT" />
-    </resultMap>
 
 </mapper>

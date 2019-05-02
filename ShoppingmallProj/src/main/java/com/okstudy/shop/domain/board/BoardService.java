@@ -1,10 +1,8 @@
-package com.okstudy.shop.service.board;
+package com.okstudy.shop.domain.board;
 
 import java.util.List;
 
 import javax.servlet.http.HttpSession;
-
-import com.okstudy.shop.domain.board.BoardVO;
 
 public interface BoardService {
 	// 01. 게시글 작성

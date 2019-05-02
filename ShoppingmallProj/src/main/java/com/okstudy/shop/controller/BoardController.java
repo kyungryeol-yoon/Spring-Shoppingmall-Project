@@ -1,7 +1,7 @@
-package com.okstudy.shop.controller.board;
+package com.okstudy.shop.controller;
 
+import com.okstudy.shop.domain.board.BoardService;
 import com.okstudy.shop.domain.board.BoardVO;
-import com.okstudy.shop.service.board.BoardService;
 
 import javax.inject.Inject;
 

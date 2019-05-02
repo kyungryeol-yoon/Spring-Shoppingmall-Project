@@ -1,22 +1,21 @@
-package com.okstudy.shop.service.board;
+package com.okstudy.shop.domain.board;
 
 import java.util.List;
 import javax.inject.Inject;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.okstudy.shop.domain.board.BoardDAO;
-import com.okstudy.shop.domain.board.BoardVO;
-
-@Service
+@Service("BoardService")
 public class BoardServiceImpl implements BoardService {
     
-	private final BoardDAO boardDAO;
+	//private final BoardDAO boardDAO;
 	
-	@Inject
-	public BoardServiceImpl(BoardDAO boardDAO) {
-		this.boardDAO = boardDAO;
-	}
+	@Autowired BoardDAOImpl boardDAO;
+//	@Inject
+//	public BoardServiceImpl(BoardDAO boardDAO) {
+//		this.boardDAO = boardDAO;
+//	}
 	
 	// 01. 게시글쓰기
 	@Override

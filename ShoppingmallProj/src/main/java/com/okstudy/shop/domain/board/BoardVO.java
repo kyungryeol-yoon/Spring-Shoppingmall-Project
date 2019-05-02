@@ -7,7 +7,7 @@ import java.util.Date;
 
 import org.apache.ibatis.type.Alias;
 
-//@Alias("Board")
+@Alias("Board")
 @ToString
 @Getter @Setter
 public class BoardVO {
