@@ -5,18 +5,22 @@ import java.util.List;
 import javax.inject.Inject;
 
 import org.apache.ibatis.session.SqlSession;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 @Repository
 public class ArticleDAOImpl implements ArticleDAO {
-	private static final String NAMESPACE = "com.doubles.mvcboard.mappers.article.ArticleMapper";
-
-    private final SqlSession sqlSession;
-
-    @Inject
-    public ArticleDAOImpl(SqlSession sqlSession) {
-        this.sqlSession = sqlSession;
-    }
+	private static final String NAMESPACE = "com.okstudy.shop.mapper.article.ArticleMapper";
+	
+	@Autowired
+	private SqlSession sqlSession;
+	
+//    private final SqlSession sqlSession;
+//
+//    @Inject
+//    public ArticleDAOImpl(SqlSession sqlSession) {
+//        this.sqlSession = sqlSession;
+//    }
 
     @Override
     public void create(ArticleVO articleVO) throws Exception {

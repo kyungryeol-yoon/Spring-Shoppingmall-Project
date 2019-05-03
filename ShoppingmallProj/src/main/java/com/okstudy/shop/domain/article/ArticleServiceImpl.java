@@ -4,17 +4,21 @@ import java.util.List;
 
 import javax.inject.Inject;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 @Service
 public class ArticleServiceImpl implements ArticleService {
 
-    private final ArticleDAO articleDAO;
-
-    @Inject
-    public ArticleServiceImpl(ArticleDAO articleDAO) {
-        this.articleDAO = articleDAO;
-    }
+	@Autowired
+	private ArticleDAO articleDAO;
+	
+//    private final ArticleDAO articleDAO;
+//
+//    @Inject
+//    public ArticleServiceImpl(ArticleDAO articleDAO) {
+//        this.articleDAO = articleDAO;
+//    }
 
     @Override
     public void create(ArticleVO articleVO) throws Exception {

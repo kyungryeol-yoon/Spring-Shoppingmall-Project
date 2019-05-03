@@ -3,16 +3,16 @@
         PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
-<mapper namespace="com.doubles.mvcboard.mappers.article.ArticleMapper">
+<mapper namespace="com.okstudy.shop.mapper.article.ArticleMapper">
 
     <insert id="create">
-        INSERT INTO SH_BOARD_TB (
-            article_no
-            , BOARD_TITLE
-            , BOARD_CONTENT
-            , BOARD_WRITER
-            , REG_DATE
-            , VIEW_COUNT
+        INSERT INTO sh_board_tb (
+            board_idx
+            , board_title
+            , board_content
+            , board_writer
+            , reg_date
+            , view_count
         ) VALUES (
             #{articleNo}
             , #{title}
@@ -23,7 +23,7 @@
         )
     </insert>
 
-    <select id="read" resultMap="ArticleResultMap">
+    <select id="read" resultType="com.okstudy.shop.domain.article.ArticleVO">
         SELECT
             BOARD_IDX
             , BOARD_TITLE
@@ -64,14 +64,5 @@
         ORDER BY BOARD_IDX DESC, REG_DATE DESC
         ]]>
     </select>
-
-    <resultMap id="ArticleResultMap" type="ArticleVO">
-        <id property="articleNo" column="BOARD_IDX"/>
-        <result property="title" column="BOARD_TITLE" />
-        <result property="content" column="BOARD_CONTENT" />
-        <result property="writer" column="BOARD_WRITER" />
-        <result property="regDate" column="REG_DATE" />
-        <result property="viewCnt" column="VIEW_COUNT" />
-    </resultMap>
 
 </mapper>

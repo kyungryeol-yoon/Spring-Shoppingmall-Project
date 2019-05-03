@@ -4,9 +4,9 @@ import javax.inject.Inject;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -20,12 +20,15 @@ import com.okstudy.shop.domain.article.ArticleVO;
 public class ArticleController {
 	private static final Logger logger = LoggerFactory.getLogger(ArticleController.class);
 
-    private final ArticleService articleService;
-
-    @Inject
-    public ArticleController(ArticleService articleService) {
-        this.articleService = articleService;
-    }
+	@Inject
+	private ArticleService articleService;
+	
+//    private final ArticleService articleService;
+//
+//    @Inject
+//    public ArticleController(ArticleService articleService) {
+//        this.articleService = articleService;
+//    }
     
     // 등록 페이지 이동
     @RequestMapping(value = "/write", method = RequestMethod.GET)
