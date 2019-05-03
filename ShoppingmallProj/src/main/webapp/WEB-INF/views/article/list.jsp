@@ -4,9 +4,8 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 
 <!DOCTYPE html>
-<html>
 <body>
-    <div class="col-lg-12">
+<div class="col-lg-12">
     <div class="box box-primary">
         <div class="box-header with-border">
             <h3 class="box-title">게시글 목록</h3>
@@ -21,13 +20,13 @@
                     <th style="width: 150px">작성시간</th>
                     <th style="width: 60px">조회</th>
                 </tr>
-                <c:forEach items="${articles}" var="board">
+                <c:forEach items="${articles}" var="article">
                 <tr>
-                    <td>${board.boardIdx}</td>
-                    <td><a href="${path}/board/read?boardIdx=${board.boardIdx}">${board.title}</a></td>
-                    <td>${board.writer}</td>
-                    <td><fmt:formatDate value="${board.regDate}" pattern="yyyy-MM-dd a HH:mm"/></td>
-                    <td><span class="badge bg-red">${board.viewCnt}</span></td>
+                    <td>${article.articleNo}</td>
+                    <td><a href="${path}/article/read?articleNo=${article.articleNo}">${article.title}</a></td>
+                    <td>${article.writer}</td>
+                    <td><fmt:formatDate value="${article.regDate}" pattern="yyyy-MM-dd a HH:mm"/></td>
+                    <td><span class="badge bg-red">${article.viewCnt}</span></td>
                 </tr>
                 </c:forEach>
                 </tbody>
