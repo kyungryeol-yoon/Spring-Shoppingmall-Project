@@ -20,8 +20,8 @@ import com.okstudy.shop.domain.article.ArticleVO;
 public class ArticleController {
 	private static final Logger logger = LoggerFactory.getLogger(ArticleController.class);
 
-	@Inject
-	private ArticleService articleService;
+	@Autowired
+	ArticleService articleService;
 	
 //    private final ArticleService articleService;
 //
@@ -57,7 +57,7 @@ public class ArticleController {
     public String list(Model model) throws Exception {
 
         logger.info("list ...");
-        model.addAttribute("articles", articleService.listAll());
+        model.addAttribute("articles", articleService.articleList());
 
         return "/article/list";
     }

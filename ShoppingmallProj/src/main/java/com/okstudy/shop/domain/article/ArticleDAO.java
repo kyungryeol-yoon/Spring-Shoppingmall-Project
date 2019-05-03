@@ -11,5 +11,5 @@ public interface ArticleDAO {
 
     void delete(Integer articleNo) throws Exception;
 
-    List<ArticleVO> listAll() throws Exception;
+    List<ArticleVO> articleList() throws Exception;
 }

@@ -4,14 +4,16 @@ import java.util.List;
 
 import javax.inject.Inject;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-@Service
+@Service("articleService")
 public class ArticleServiceImpl implements ArticleService {
-
+	private static final Logger logger = LoggerFactory.getLogger(ArticleServiceImpl.class);
 	@Autowired
-	private ArticleDAO articleDAO;
+	ArticleDAO articleDAO;
 	
 //    private final ArticleDAO articleDAO;
 //
@@ -41,7 +43,8 @@ public class ArticleServiceImpl implements ArticleService {
     }
 
     @Override
-    public List<ArticleVO> listAll() throws Exception {
-        return articleDAO.listAll();
+    public List<ArticleVO> articleList() throws Exception {
+    	logger.info("service list...");
+        return articleDAO.articleList();
     }
 }
