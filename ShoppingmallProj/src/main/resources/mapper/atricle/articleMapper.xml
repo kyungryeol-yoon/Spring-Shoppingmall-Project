@@ -50,7 +50,7 @@
         WHERE BOARD_IDX = #{articleNo}
     </delete>
 
-    <select id="articleList" resultType="ArticleVO">
+    <select id="articleList" resultType="com.okstudy.shop.domain.article.ArticleVO">
     <![CDATA[
         SELECT
         	BOARD_IDX

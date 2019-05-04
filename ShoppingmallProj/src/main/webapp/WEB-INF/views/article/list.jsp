@@ -10,13 +10,8 @@
         <!-- Content Header (Page header) -->
         <section class="content-header">
             <h1>
-                게시판
-                <small>목록페이지</small>
+                자유게시판
             </h1>
-            <ol class="breadcrumb">
-                <li><i class="fa fa-edit"></i> article</li>
-                <li class="active"><a href="${path}/article/list"> list</a></li>
-            </ol>
         </section>
 
         <!-- Main content -->
@@ -24,9 +19,6 @@
 
             <div class="col-lg-12">
                 <div class="box box-primary">
-                    <div class="box-header with-border">
-                        <h3 class="box-title">게시글 목록</h3>
-                    </div>
                     <div class="box-body">
                         <table class="table table-bordered">
                             <tbody>
@@ -37,13 +29,13 @@
                                 <th style="width: 150px">작성시간</th>
                                 <th style="width: 60px">조회</th>
                             </tr>
-                            <c:forEach items="${articles}" var="article">
+                            <c:forEach items="${articles}" var ="article">
                             <tr>
                                 <td>${article.articleNo}</td>
                                 <td><a href="${path}/article/read?articleNo=${article.articleNo}">${article.title}</a></td>
                                 <td>${article.writer}</td>
-                                <td><fmt:formatDate value="${article.regDate}" pattern="yyyy-MM-dd a HH:mm"/></td>
-                                <td><span class="badge bg-red">${article.viewCnt}</span></td>
+                                <td><fmt:formatDate value="${article.regDate}" pattern="yyyy-MM-dd HH:mm:ss"/></td>
+                                <td>${article.viewCnt}</td>
                             </tr>
                             </c:forEach>
                             </tbody>
