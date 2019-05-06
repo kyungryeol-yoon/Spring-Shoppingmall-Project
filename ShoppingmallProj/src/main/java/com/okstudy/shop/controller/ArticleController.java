@@ -61,7 +61,7 @@ public class ArticleController {
 
         logger.info("list ...");
         model.addAttribute("articles", articleService.articleList());
-
+        
         return "/article/list";
     }
     

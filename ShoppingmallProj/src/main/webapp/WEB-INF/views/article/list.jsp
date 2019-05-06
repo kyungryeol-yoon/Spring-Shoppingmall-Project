@@ -1,7 +1,10 @@
-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+         pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri ="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="fmt" uri ="http://java.sun.com/jsp/jstl/fmt" %>
 <%@ taglib prefix="fn" uri ="http://java.sun.com/jsp/jstl/functions" %>
+
+<%@ taglib prefix="tiles" uri="http://tiles.apache.org/tags-tiles"%>
 <html>
 
 <body class="hold-transition skin-blue sidebar-mini layout-boxed">
@@ -32,7 +35,7 @@
                                 <th style="width: 150px">작성시간</th>
                                 <th style="width: 60px">조회</th>
                             </tr>
-                            <c:forEach items="${articles}" var ="article">
+                            <c:forEach items="${articles}" var="article">
                             <tr>
                                 <td>${article.articleNo}</td>
                                 <td><a href="${path}/article/read?articleNo=${article.articleNo}">${article.title}</a></td>
