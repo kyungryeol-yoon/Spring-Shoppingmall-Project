@@ -50,19 +50,26 @@
         WHERE BOARD_IDX = #{articleNo}
     </delete>
 
-    <select id="listAll" resultType="com.okstudy.shop.domain.article.ArticleVO">
-        <![CDATA[
+    <select id="articleList" resultType="com.okstudy.shop.domain.article.ArticleVO">
+    <![CDATA[
         SELECT
-            BOARD_IDX,
-            BOARD_TITLE,
-            BOARD_CONTENT,
-            BOARD_WRITER,
-            REG_DATE,
-            VIEW_COUNT
+        	BOARD_IDX
+            , BOARD_TITLE
+            , BOARD_CONTENT
+            , BOARD_WRITER
+            , REG_DATE
+            , VIEW_COUNT
         FROM SH_BOARD_TB
         WHERE BOARD_IDX > 0
-        ORDER BY BOARD_IDX DESC, REG_DATE DESC
+        ORDER BY BOARD_IDX DESC, VIEW_COUNT DESC
         ]]>
     </select>
-
+	<resultMap id="ArticleResultMap" type="ArticleVO">
+        <id property="articleNo" column="BOARD_IDX"/>
+        <result property="title" column="BOARD_TITLE" />
+        <result property="content" column="BOARD_CONTENT" />
+        <result property="writer" column="BOARD_WRITER" />
+        <result property="regDate" column="REG_DATE" />
+        <result property="viewCnt" column="VIEW_COUNT" />
+    </resultMap>
 </mapper>

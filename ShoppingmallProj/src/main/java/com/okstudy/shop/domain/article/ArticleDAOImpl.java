@@ -5,15 +5,18 @@ import java.util.List;
 import javax.inject.Inject;
 
 import org.apache.ibatis.session.SqlSession;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
-@Repository
+@Repository("articleDAO")
 public class ArticleDAOImpl implements ArticleDAO {
+	private static final Logger logger = LoggerFactory.getLogger(ArticleDAOImpl.class);
 	private static final String NAMESPACE = "com.okstudy.shop.mapper.article.ArticleMapper";
 	
 	@Autowired
-	private SqlSession sqlSession;
+	SqlSession sqlSession;
 	
 //    private final SqlSession sqlSession;
 //
@@ -43,7 +46,8 @@ public class ArticleDAOImpl implements ArticleDAO {
     }
 
     @Override
-    public List<ArticleVO> listAll() throws Exception {
-        return sqlSession.selectList(NAMESPACE + ".listAll");
+    public List<ArticleVO> articleList() throws Exception {
+    	logger.info("dao list...");
+        return sqlSession.selectList(NAMESPACE + ".articleList");
     }
 }

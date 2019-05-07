@@ -1,5 +1,5 @@
 Manifest-Version: 1.0
-Built-By: kryoo
-Build-Jdk: 1.8.0_201-1-ojdkbuild
+Built-By: kyungryeol
+Build-Jdk: 1.8.0_101
 Created-By: Maven Integration for Eclipse
 
