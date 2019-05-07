@@ -14,4 +14,8 @@ public class CategoryService {
     public List<CategoryVo> list() {
         return categoryDAO.list();
     }
+
+    public CategoryVo findOne(Long categoryIdx) {
+        return categoryDAO.findOne(categoryIdx);
+    }
 }

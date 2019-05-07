@@ -4,10 +4,19 @@
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.okstudy.shop.domain.category.CategoryDAO">
 
+    <sql id="category_sql">
+        SELECT * FROM SH_CATEGORY_TB
+
+    </sql>
+
     <select id="list" resultType="Category">
-      SELECT * FROM SH_CATEGORY_TB
-      WHERE STATUS = "NORMAL"
-      ORDER BY ORDER_NO
+        <include refid="category_sql"></include>
+        WHERE STATUS = "NORMAL"
+        ORDER BY ORDER_NO
     </select>
 
+    <select id="findOne" resultType="Category">
+      <include refid="category_sql"></include>
+        WHERE STATUS = "NORMAL" AND CATEGORY_IDX = #{categoryIdx}
+    </select>
 </mapper>

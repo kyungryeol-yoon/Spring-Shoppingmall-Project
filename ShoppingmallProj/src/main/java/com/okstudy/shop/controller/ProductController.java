@@ -20,10 +20,10 @@ public class ProductController {
 
     @GetMapping("/list/{categoryNo}")
     public String list(Model model, @PathVariable Long categoryNo) {
-//        productService.list(categoryNo);
-        System.out.println("dong : " + categoryNo);
         model.addAttribute("categoryIdx", categoryNo);
+        model.addAttribute("category", categoryService.findOne(categoryNo));
         model.addAttribute("categorys", categoryService.list());
+        model.addAttribute("products", productService.list(categoryNo));
 
         return "/product/product";
     }

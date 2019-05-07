@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.okstudy.shop.domain.product.ProductDAO">
+
+    <sql id="product_sql">
+        SELECT * FROM SH_CATEGORY_PRDT_TB
+    </sql>
+
+    <select id="list" resultType="ProductVo">
+        <include refid="product_sql"></include>
+    </select>
+
+    <!--<select id="findOne" resultType="Category">-->
+
+    <!--</select>-->
+</mapper>

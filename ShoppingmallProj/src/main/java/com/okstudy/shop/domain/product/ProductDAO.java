@@ -8,5 +8,5 @@ import java.util.List;
 public interface ProductDAO {
 
     public List<ProductVo> list(@Param("categoryNo") Long categoryNo);
-    public List<ProductVo> findOne(@Param("productId") String productId);
+//    public List<ProductVo> findOne(@Param("productId") String productId);
 }
